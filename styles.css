@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.dice-container {
+    cursor: pointer;
+}
+
+.dice {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px;
+    transform-origin: center;
+    transition: transform 0.5s ease-out; /* Add a transition for smooth animation */
+}
+
+.dot {
+    width: 25px;
+    height: 25px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.dot:nth-child(1) { top: 20px; left: 20px; }
+.dot:nth-child(2) { top: 20px; right: 20px; }
+.dot:nth-child(3) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.dot:nth-child(4) { bottom: 20px; left: 20px; }
+.dot:nth-child(5) { bottom: 20px; right: 20px; }
+.dot:nth-child(6) { top: 50%; left: 20px; transform: translate(0%, -50%); }
+
+/* Add hover effect to the dice */
+.dice-container:hover .dice {
+    transform: scale(1.1);
+}
+
+/* Add roll animation class */
+.rolling {
+    animation: rollAnimation 1s forwards;
+}
+
+@keyframes rollAnimation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
